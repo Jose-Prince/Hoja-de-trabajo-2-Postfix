@@ -1,6 +1,7 @@
 /**
  * @author Seccion 10
  */
+
 public interface IPostfixCalculator {
 	
 	boolean isOneItem(IStack operandos);
