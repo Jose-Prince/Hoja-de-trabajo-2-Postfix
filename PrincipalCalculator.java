@@ -2,11 +2,12 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
-public class ReadFileExample {
-  public static void main(String[] args) {
+public class PrincipalCalculator {
+  public static <T> void main(String[] args) {
 	  System.out.println("Ingrese la ruta del archivo ej C:\\ejemplos\\example1.txt");
 	  Scanner in = new Scanner(System.in);
 	  String fpath = in.nextLine();
+      PostFixCalculator<T> calculadora = new PostFixCalculator<>();
 	  
     try {
       File myObj = new File(fpath);

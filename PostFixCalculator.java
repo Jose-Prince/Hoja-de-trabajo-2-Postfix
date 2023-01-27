@@ -4,11 +4,11 @@ import java.util.ArrayList;
  * @author MAAG
  *
  */
-public class StackUsingArrayList<T> implements IStack<T>, IPostfixCalculator {
+public class PostFixCalculator<T> implements IStack<T>, IPostfixCalculator {
 
 	private ArrayList<T> miListaInterna;
 	
-	public StackUsingArrayList() {
+	public PostFixCalculator() {
 		miListaInterna = new ArrayList<T>(); 
 	}
 	
@@ -46,54 +46,54 @@ public class StackUsingArrayList<T> implements IStack<T>, IPostfixCalculator {
 	}
 
 	public int suma(int a, int b){
-		b = peek();
+		b = (int) peek();
 		pull();
-		a = peek();
+		a = (int) peek();
 		pull();
 
 		return a + b;
 	}
 
 	public int resta(int a, int b){
-		b = peek();
+		b = (int) peek();
 		pull();
-		a = peek();
+		a = (int) peek();
 		pull();
 
 		return a - b;
 	}
 	
 	public int multiplicacion(int a, int b){
-		b = peek();
+		b = (int) peek();
 		pull();
-		a = peek();
+		a = (int) peek();
 		pull();
 
 		return a * b;
 	}
 	
 	public int division(int a, int b){
-		b = peek();
+		b = (int) peek();
 		pull();
-		a = peek();
+		a = (int) peek();
 		pull();
 
 		return a/b;
 	}
 	
 	public boolean isOperator(String item){
-		boolean operator;
+			boolean operator = false;
 			if (item.matches("[+,-,*,/]")){
 				operator = true;
 			}
-		return true;
+		return operator;
 	}
 	
 	public ArrayList<String> getItems(String _expresion){
 			if (_expresion.matches("[0-9]*")){
-				int newItem = _expresion;
+				T newItem = (T) _expresion;
 				push(newItem);
 			}
-		return miListaInterna;
+		return (ArrayList<String>) miListaInterna;
 	}
 }
