@@ -14,6 +14,7 @@ public class ReadFileExample {
       while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
         System.out.println(data);
+        
       }
       myReader.close();
     } catch (FileNotFoundException e) {
