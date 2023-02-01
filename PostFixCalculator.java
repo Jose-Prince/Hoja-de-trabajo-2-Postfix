@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * @author MAAG
- *
+ * @author José Prince
+ * 
  */
 public class PostFixCalculator<T> implements IStack<T>, IPostfixCalculator {
 
@@ -12,31 +12,62 @@ public class PostFixCalculator<T> implements IStack<T>, IPostfixCalculator {
 		miListaInterna = new ArrayList<T>(); 
 	}
 	
+	
+	/** 
+	 * @return int
+	 * Cuenta los elementos del stack
+	 */
 	@Override
 	public int count() {
 		return miListaInterna.size();
 	}
 
+	
+	/** 
+	 * @return boolean
+	 * Indica si no hay elementos en el stack
+	 */
 	@Override
 	public boolean isEmpty() {
 		return miListaInterna.isEmpty();
 	}
 
+	
+	/** 
+	 * @param value
+	 * Añade un dato a la pila
+	 */
 	@Override
 	public void push(T value) {
 		miListaInterna.add(0, value);
 	}
 
+	
+	/** 
+	 * @return T
+	 * Quita el primer dato de la pila
+	 */
 	@Override
 	public T pull() {
 		return miListaInterna.remove(0);
 	}
 
+	
+	/** 
+	 * @return T
+	 * Obtiene el dato de la primera posición del stack
+	 */
 	@Override
 	public T peek() {		
 		return miListaInterna.get(0);
 	}
 
+	
+	/** 
+	 * @param operandos
+	 * @return boolean
+	 * Muestra si solo hay un elemento en el stack
+	 */
 	public boolean isOneItem(IStack operandos){
 		boolean oneItem = false;
 		if (miListaInterna.size() == 1){
@@ -45,22 +76,56 @@ public class PostFixCalculator<T> implements IStack<T>, IPostfixCalculator {
 		return oneItem;
 	}
 
+	
+	/** 
+	 * @param a
+	 * @param b
+	 * @return int
+	 * Hace una suma
+	 */
 	public int suma(int a, int b){
 		return a + b;
 	}
 
+	
+	/** 
+	 * @param a
+	 * @param b
+	 * @return int
+	 * Hace una resta
+	 */
 	public int resta(int a, int b){
 		return a - b;
 	}
 	
+	
+	/** 
+	 * @param a
+	 * @param b
+	 * @return int
+	 * Hace una multiplicación
+	 */
 	public int multiplicacion(int a, int b){
 		return a * b;
 	}
 	
+	
+	/** 
+	 * @param a
+	 * @param b
+	 * @return int
+	 * Hace una división
+	 */
 	public int division(int a, int b){
 		return a/b;
 	}
 	
+	
+	/** 
+	 * @param item
+	 * @return boolean
+	 * Indica si un elemento es un operador
+	 */
 	public boolean isOperator(String item){
 			boolean operator = false;
 			if (item.matches("[+,-,*,/]")){
@@ -69,39 +134,15 @@ public class PostFixCalculator<T> implements IStack<T>, IPostfixCalculator {
 		return operator;
 	}
 	
+	
+	/** 
+	 * @param _expresion
+	 * @return ArrayList<String>
+	 * Introduce el elemento indicado al stack
+	 */
 	public ArrayList<String> getItems(String _expresion){
 		T newItem = (T) _expresion;
 		push(newItem);
-		// String[] listaStrings = _expresion.split(" ");
-        
-        // for (int i =0;i< listaStrings.length; i++){
-            // if (listaStrings[i].matches("[0-9]*")){
-			// 	T newItem = (T) listaStrings[i];
-			// 	push(newItem);
-			// } else if (listaStrings[i].matches("[+,-,*,/]*")){
-			// 	switch (listaStrings[i]) {
-			// 		case "+":
-			// 			int resultado = suma((int) miListaInterna.get(0), (int) miListaInterna.get(1));
-			// 			System.out.println(resultado);
-			// 			break;
-			// 		case "-":
-			// 			resultado = resta((int) miListaInterna.get(0), (int) miListaInterna.get(1));
-			// 			System.out.println(resultado);
-			// 			break;
-			// 		case "*":
-			// 			resultado = multiplicacion((int) miListaInterna.get(0), (int) miListaInterna.get(1));
-			// 			System.out.println(resultado);
-			// 			break;
-			// 		case "/":
-			// 			resultado = division((int) miListaInterna.get(0), (int) miListaInterna.get(1));
-			// 			System.out.println(resultado);
-			// 			break;
-			// 		default:
-			// 			break;
-			// 	}
-			// }
-            
-        //}
 
 		return (ArrayList<String>) miListaInterna;
 	}

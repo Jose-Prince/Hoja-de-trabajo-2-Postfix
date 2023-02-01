@@ -2,7 +2,15 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
+/**
+ * @author José Prince
+ */
+
 public class PrincipalCalculator {
+  
+  /** 
+   * @param args
+   */
   public static <T> void main(String[] args) {
 	  System.out.println("Ingrese la ruta del archivo ej C:\\ejemplos\\example1.txt");
 	  Scanner in = new Scanner(System.in);
